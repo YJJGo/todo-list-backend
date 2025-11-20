@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.*;
+import lombok.experimental.Accessors;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -19,6 +20,7 @@ import java.util.Date;
  */
 @Data
 @ToString
+@Accessors(chain = true)
 @TableName("todo")
 public class Todo implements Serializable {
 
@@ -55,7 +57,7 @@ public class Todo implements Serializable {
     private Boolean completed;
 
     /**
-     * 截至时间戳
+     * 截止时间戳
      */
     @TableField("due_datetime")
     private Date dueDatetime;
