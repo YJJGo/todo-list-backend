@@ -4,9 +4,7 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -19,8 +17,7 @@ import java.util.Date;
  * @author yangjj
  * @since 2025-11-20
  */
-@Getter
-@Setter
+@Data
 @ToString
 @TableName("todo")
 public class Todo implements Serializable {
@@ -46,6 +43,12 @@ public class Todo implements Serializable {
     private String description;
 
     /**
+     * 分类: 工作/学习/生活/其他
+     */
+    @TableField("category")
+    private String category;
+
+    /**
      * 是否完成 0:未完成 1:已完成
      */
     @TableField("completed")
@@ -56,4 +59,10 @@ public class Todo implements Serializable {
      */
     @TableField("create_datetime")
     private Date createDatetime;
+
+    /**
+     * 更新时间戳
+     */
+    @TableField("create_datetime")
+    private Date updateDatetime;
 }
