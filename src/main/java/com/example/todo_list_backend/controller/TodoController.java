@@ -18,9 +18,13 @@ public class TodoController {
 
     // 1. 获取列表 (支持按创建时间倒序)
     @GetMapping("/list")
-    public Result<List<Todo>> list() {
+    public Result<List<Todo>> list(@RequestParam(required = false, defaultValue = "createDatetime") String sortBy) {
         LambdaQueryWrapper<Todo> wrapper = new LambdaQueryWrapper<>();
-        wrapper.orderByDesc(Todo::getCreateDatetime); // 按时间倒序
+        if ("dueDatetime".equals(sortBy)) {
+            wrapper.orderByAsc(Todo::getDueDatetime);
+        } else {
+            wrapper.orderByDesc(Todo::getCreateDatetime);
+        }
         List<Todo> list = todoService.list(wrapper);
         return Result.success(list);
     }

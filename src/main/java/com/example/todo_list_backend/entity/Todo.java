@@ -55,6 +55,12 @@ public class Todo implements Serializable {
     private Boolean completed;
 
     /**
+     * 截至时间戳
+     */
+    @TableField("due_datetime")
+    private Date dueDatetime;
+
+    /**
      * 创建时间戳
      */
     @TableField("create_datetime")
