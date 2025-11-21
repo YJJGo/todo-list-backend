@@ -33,7 +33,7 @@ public class TodoUpdateRequest {
     /**
      * 是否完成 0:未完成 1:已完成
      */
-    private Boolean completed;
+    private Integer completed;
 
     /**
      * 截止时间戳

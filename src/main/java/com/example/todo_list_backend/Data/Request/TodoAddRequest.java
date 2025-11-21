@@ -31,6 +31,16 @@ public class TodoAddRequest {
     private String category;
 
     /**
+     * 提醒邮箱
+     */
+    private String email;
+
+    /**
+     * 提前多少分钟提醒
+     */
+    private Integer reminderPreTime;
+
+    /**
      * 截止时间戳
      */
     private Date dueDatetime;

@@ -27,7 +27,7 @@ public class TodoController {
         String sortBy = todoListRequest.getSortBy();
         LambdaQueryWrapper<Todo> wrapper = new LambdaQueryWrapper<>();
         if ("dueDatetime".equals(sortBy)) {
-            wrapper.orderByAsc(Todo::getDueDatetime);
+            wrapper.last("ORDER BY (due_datetime IS NULL) ASC, due_datetime ASC");
         } else {
             wrapper.orderByDesc(Todo::getCreateDatetime);
         }
@@ -46,6 +46,8 @@ public class TodoController {
         Todo todo = new Todo().setTitle(todoAddRequest.getTitle())
                 .setDescription(todoAddRequest.getDescription())
                 .setCategory(todoAddRequest.getCategory())
+                .setEmail(todoAddRequest.getEmail())
+                .setReminderPreTime(todoAddRequest.getReminderPreTime())
                 .setDueDatetime(todoAddRequest.getDueDatetime());
         return BaseResultResponseUtil.success(todoService.save(todo));
     }

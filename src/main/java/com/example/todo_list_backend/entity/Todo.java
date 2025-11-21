@@ -54,7 +54,25 @@ public class Todo implements Serializable {
      * 是否完成 0:未完成 1:已完成
      */
     @TableField("completed")
-    private Boolean completed;
+    private Integer completed;
+
+    /**
+     * 提醒邮箱
+     */
+    @TableField("email")
+    private String email;
+
+    /**
+     * 提前多少分钟提醒
+     */
+    @TableField("reminder_pre_time")
+    private Integer reminderPreTime;
+
+    /**
+     * 提醒状态
+     */
+    @TableField("reminder_sent")
+    private Boolean reminderSent;
 
     /**
      * 截止时间戳
