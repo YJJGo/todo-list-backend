@@ -1,4 +1,4 @@
-package com.example.todo_list_backend.utils;
+package com.example.todo_list_backend.generator;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.generator.FastAutoGenerator;
